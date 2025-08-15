@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# -----------------------
 # CONFIG
-# -----------------------
 BACKEND_URL="http://127.0.0.1:8000"
 USERNAME="$1"   # First argument: ./move.sh player1 flag{xyz}
 FLAG="$2"       # Second argument: the submitted flag
@@ -12,9 +10,7 @@ if [ -z "$USERNAME" ] || [ -z "$FLAG" ]; then
     exit 1
 fi
 
-# -----------------------
 # SUBMIT FLAG TO BACKEND
-# -----------------------
 RESPONSE=$(curl -s -X POST "$BACKEND_URL/submit_flag" \
     -H "Content-Type: application/json" \
     -d "{\"username\": \"$USERNAME\", \"submitted_flag\": \"$FLAG\"}")
