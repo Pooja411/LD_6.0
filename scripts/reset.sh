@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# -----------------------
 # CONFIG
-# -----------------------
+
 MONGO_URI="mongodb://localhost:27017"
 DB_NAME="ctf_game"
 COLLECTION="players"
@@ -13,9 +12,7 @@ if [ -z "$USERNAME" ]; then
     exit 1
 fi
 
-# -----------------------
 # RESET PLAYER PROGRESS
-# -----------------------
 echo "Resetting progress for $USERNAME..."
 
 mongo "$MONGO_URI/$DB_NAME" --quiet --eval \
